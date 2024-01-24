@@ -1,0 +1,13 @@
+// Function to launch YouTube link
+  Future<void> launchYouTubeVideo(Music item) async {
+    final url = item.average.toString();
+
+    if (!await launch(
+      url,
+      forceSafariVC: true,
+      forceWebView: false,
+      headers: <String, String>{'my_header_key': 'my_header_value'},
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
